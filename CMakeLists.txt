@@ -20,6 +20,8 @@ find_package(catkin REQUIRED COMPONENTS
   visualization_msgs
   tf
 )
+find_package(Boost REQUIRED
+ COMPONENTS chrono date_time filesystem regex serialization system thread timer)
 
 find_package(PCL REQUIRED)
 find_package(Eigen3 REQUIRED)
