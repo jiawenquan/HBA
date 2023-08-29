@@ -12,8 +12,8 @@
 
 typedef std::vector<Eigen::Vector3d, Eigen::aligned_allocator<Eigen::Vector3d> > vector_vec3d;
 typedef std::vector<Eigen::Quaterniond, Eigen::aligned_allocator<Eigen::Quaterniond> > vector_quad;
-// typedef pcl::PointXYZINormal PointType;
-typedef pcl::PointXYZ PointType;
+typedef pcl::PointXYZINormal PointType;
+// typedef pcl::PointXYZ PointType;
 // typedef pcl::PointXYZI PointType;
 typedef Eigen::Matrix<double, 6, 6> Matrix6d;
 

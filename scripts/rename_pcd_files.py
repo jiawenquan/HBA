@@ -1,7 +1,7 @@
 import os
 
 # 指定文件夹路径
-folder_path = "/home/goslam/Documents/HBA/park/pcd/"
+folder_path = "/GOSLAM/Downloads/GOSLAM/2023-08-17-22-53-37/pcd/"
 
 # 列出所有.pcd文件
 files = [f for f in os.listdir(folder_path) if f.endswith('.pcd')]

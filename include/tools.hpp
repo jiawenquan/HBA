@@ -22,9 +22,9 @@
 #define NMATCH 5
 #define DVEL 6
 
-typedef pcl::PointXYZ PointType;
+// typedef pcl::PointXYZ PointType;
 // typedef pcl::PointXYZI PointType;
-// typedef pcl::PointXYZINormal PointType;
+typedef pcl::PointXYZINormal PointType;
 using namespace std;
 
 Eigen::Matrix3d I33(Eigen::Matrix3d::Identity());
