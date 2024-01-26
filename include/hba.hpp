@@ -71,23 +71,26 @@ public:
       pose_size = pose_vec.size();
     else
       pose_size = pose_size_;
-    tail = (pose_size - WIN_SIZE) % GAP;
-    gap_num = (pose_size - WIN_SIZE) / GAP;
-    last_win_size = pose_size - GAP * (gap_num+1);
-    part_length = ceil((gap_num+1)/double(thread_num));
+    tail = (pose_size - WIN_SIZE) % GAP; //最后一个窗口的尺寸
+    gap_num = (pose_size - WIN_SIZE) / GAP;//多少个窗口
+    last_win_size = pose_size - GAP * (gap_num+1);//最后一个窗口的尺寸
+    part_length = ceil((gap_num+1)/double(thread_num));//每个线程处理的窗口数量
     if(gap_num-(thread_num-1)*part_length < 0) part_length = floor((gap_num+1)/double(thread_num));
     while(part_length == 0 || (gap_num-(thread_num-1)*part_length+1)/double(part_length) > 2)
     {
       thread_num -= 1;
-      part_length = ceil((gap_num+1)/double(thread_num));
-      if(gap_num-(thread_num-1)*part_length < 0) part_length = floor((gap_num+1)/double(thread_num));
+      part_length = ceil((gap_num+1)/double(thread_num)); //每个线程处理的窗口数量
+      if(gap_num-(thread_num-1)*part_length < 0) 
+      {
+        part_length = floor((gap_num+1)/double(thread_num));//每个线程处理的窗口数量
+      }
     }
-    left_gap_num = gap_num-(thread_num-1)*part_length+1;
+    left_gap_num = gap_num-(thread_num-1)*part_length+1;//最后一个线程处理的窗口数量
     if(tail == 0)
     {
-      left_size = (gap_num-(thread_num-1)*part_length+1)*WIN_SIZE;
-      left_h_size = (gap_num-(thread_num-1)*part_length)*GAP+WIN_SIZE-1;
-      j_upper = gap_num-(thread_num-1)*part_length+1;
+      left_size = (gap_num-(thread_num-1)*part_length+1)*WIN_SIZE;//最后一个线程处理的窗口数量
+      left_h_size = (gap_num-(thread_num-1)*part_length)*GAP+WIN_SIZE-1;//最后一个线程处理的窗口数量
+      j_upper = gap_num-(thread_num-1)*part_length+1;//最后一个线程处理的窗口数量
     }
     else
     {

@@ -180,6 +180,20 @@ void parallel_tail(LAYER &layer, int thread_id, LAYER &next_layer)
   if (layer.gap_num - (layer.thread_num - 1) * part_length + 1 != left_gap_num)
     printf("THIS IS WRONG!\n");
 
+
+  printf("thread_id * part_length: %d\n", thread_id * part_length);
+  printf("left_gap_num: %d\n", left_gap_num);
+  printf("thread_id * part_length + left_gap_num: %d\n", 
+  thread_id * part_length + left_gap_num);
+  printf("layer.gap_num: %d\n", layer.gap_num);
+  printf("layer.thread_num: %d\n", layer.thread_num);
+  printf("layer.part_length: %d\n", layer.part_length);
+  printf("layer.left_gap_num: %d\n", layer.left_gap_num);
+  printf("layer.tail: %d\n", layer.tail);
+  printf("layer.last_win_size: %d\n", layer.last_win_size);
+  printf("layer.pose_vec.size(): %d\n", layer.pose_vec.size());
+  printf("layer.pose_vec.size() - layer.tail: %d\n", layer.pose_vec.size() - layer.tail);
+  printf("layer.pose_vec.size() - layer.tail - layer.last_win_size: %d\n",
   for (uint i = thread_id * part_length; i < thread_id * part_length + left_gap_num; i++)
   {
     printf("parallel computing %d\n", i);
